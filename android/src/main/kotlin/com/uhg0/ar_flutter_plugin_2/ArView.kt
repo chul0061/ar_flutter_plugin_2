@@ -201,12 +201,13 @@ class ArView(
                     fileLocation = fileLocation
                 }
                 2 -> { // fileSystemAppFolderGLB
-                    fileLocation = fileLocation
+                    val documentsPath = viewContext.applicationInfo.dataDir
+                    fileLocation = "$documentsPath/app_flutter/$fileLocation"
                 }
-                 3 -> { //fileSystemAppFolderGLTF2
-                    val documentsPath = viewContext.getApplicationInfo().dataDir
-                    val fileLocation = documentsPath + "/app_flutter/" + nodeData["uri"] as String
-                 }
+                3 -> { // fileSystemAppFolderGLTF2
+                    val documentsPath = viewContext.applicationInfo.dataDir
+                    fileLocation = "$documentsPath/app_flutter/$fileLocation"
+                }
                 else -> {
                     return null
                 }
